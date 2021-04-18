@@ -112,7 +112,7 @@ public class TictactoeTest {
 
         assertTrue(tictactoe.checkFullTable());
     }
-    
+
     @Test
     @DisplayName("Check if someone won a tictactoe")
     public void checkForWinner(){
