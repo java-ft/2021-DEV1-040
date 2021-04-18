@@ -85,11 +85,25 @@ public class Tictactoe {
     }
 
     public String getEndOfGameMessage(Shape shape){
-        if(shape instanceof Circle){
-            return "O won!";
-        } else if(shape instanceof Cross){
-            return "X won!";
+        if(shape instanceof Circle || shape instanceof Cross){
+            return shape.getModel() + " won!";
         }
+
         return "Nobody won";
+    }
+
+    @Override
+    public String toString(){
+        String result = "";
+
+        for(int i = 0; i < table.length; i++){
+            if(table[i] != null)
+                result += table[i].getModel();
+            result += "|";
+            if(i == 2 || i == 5)
+                result += "\n" + "-------" + "\n";
+        }
+
+        return result;
     }
 }
