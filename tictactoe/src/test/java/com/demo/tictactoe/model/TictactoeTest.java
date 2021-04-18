@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TictactoeTest {
 
@@ -20,14 +20,16 @@ public class TictactoeTest {
     }
 
     @Test
-    @DisplayName("Adding a shape to a tictactoe")
+    @DisplayName("Adding a shape to a tictactoe when there is already a shape")
     public void addShape_whenAlreadyExist(){
-        Shape shape = new Shape();
+        Circle circle = new Circle();
+        Cross cross = new Cross();
         Tictactoe tictactoe = new Tictactoe();
 
-        tictactoe.addShape(shape, 0);
+        tictactoe.addShape(circle, 0);
+        tictactoe.addShape(cross, 0);
 
-        assertEquals(shape, tictactoe.table[0]);
+        assertEquals(circle, tictactoe.table[0]);
     }
 
     @Test
@@ -55,5 +57,75 @@ public class TictactoeTest {
         for(Shape index: tictactoe.table){
             assertEquals(null, index);
         }
+    }
+
+    @Test
+    @DisplayName("Check if someone won a tictactoe due to a line")
+    public void checkWinnerInRow(){
+        Circle circle = new Circle();
+        Tictactoe tictactoe = new Tictactoe();
+
+        tictactoe.addShape(circle, 0);
+        tictactoe.addShape(circle, 1);
+        tictactoe.addShape(circle, 2);
+
+        assertTrue(tictactoe.checkWinnerInRow(0));
+    }
+
+    @Test
+    @DisplayName("Check if someone won a tictactoe due to a column")
+    public void checkWinnerInColumn(){
+        Cross cross = new Cross();
+        Tictactoe tictactoe = new Tictactoe();
+
+        tictactoe.addShape(cross, 0);
+        tictactoe.addShape(cross, 3);
+        tictactoe.addShape(cross, 6);
+
+        assertTrue(tictactoe.checkWinnerInColumn(0));
+    }
+
+    @Test
+    @DisplayName("Check if someone won a tictactoe due to a diagonal")
+    public void checkWinnerInDiagonal(){
+        Circle circle = new Circle();
+        Tictactoe tictactoe = new Tictactoe();
+
+        tictactoe.addShape(circle, 0);
+        tictactoe.addShape(circle, 4);
+        tictactoe.addShape(circle, 8);
+
+        assertTrue(tictactoe.checkWinnerInDiagonal(0));
+    }
+
+    @Test
+    @DisplayName("Check if tictactoe is fully completed")
+    public void checkFullTable(){
+        Circle circle = new Circle();
+        Tictactoe tictactoe = new Tictactoe();
+
+        assertFalse(tictactoe.checkFullTable());
+
+        for(int i = 0; i < tictactoe.getTable().length; i++){
+            tictactoe.addShape(circle, i);
+        }
+
+        assertTrue(tictactoe.checkFullTable());
+    }
+    
+    @Test
+    @DisplayName("Check if someone won a tictactoe")
+    public void checkForWinner(){
+        Circle circle = new Circle();
+        Cross cross = new Cross();
+        Tictactoe tictactoe = new Tictactoe();
+
+        tictactoe.addShape(circle, 0);
+        tictactoe.addShape(cross, 1);
+        tictactoe.addShape(cross, 2);
+        tictactoe.addShape(circle, 4);
+        tictactoe.addShape(circle, 8);
+
+        assertTrue(tictactoe.checkForWinner());
     }
 }
