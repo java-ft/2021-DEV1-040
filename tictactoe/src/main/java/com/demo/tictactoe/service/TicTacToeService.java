@@ -20,7 +20,7 @@ public class TicTacToeService implements ITicTacToeService {
         String response = "";
 
         if(gameEnded){
-            response += "You can't play anymore, game ended.";
+            response += "You can't play anymore, game ended. You must restart it.";
         } else {
             if (index == null) {
                 response += "You forgot to indicate the position for your " + shape.getModel() + "\n";
@@ -35,12 +35,12 @@ public class TicTacToeService implements ITicTacToeService {
             response += tictactoe.toString();
 
             if (tictactoe.checkForWinner()) {
-                response = tictactoe.getEndOfGameMessage(shape);
+                response += tictactoe.getEndOfGameMessage(shape);
                 gameEnded = true;
             }
 
             if(tictactoe.checkFullTable()){
-                response = tictactoe.getEndOfGameMessage(null);
+                response += tictactoe.getEndOfGameMessage(null);
                 gameEnded = true;
             }
         }
