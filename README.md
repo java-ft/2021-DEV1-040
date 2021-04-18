@@ -28,11 +28,11 @@ Here are the APIs you can use to play:
 - restart: restart the tictactoe game from beginning
 Example: http://localhost:8080/restart
   
--cross?index={number}: add a cross at the selected index on the tictactoe grid
+- cross?index={number}: add a cross at the selected index on the tictactoe grid
 Example: http://localhost:8080/cross?index=1
 
--circle?index={number}: add a circle at the selected index on the tictactoe grid
+- circle?index={number}: add a circle at the selected index on the tictactoe grid
 Example: http://localhost:8080/circle?index=3
 
--view: show the tictactoe grid (without doing any other action)
+- view: show the tictactoe grid (without doing any other action)
 Example: http://localhost:8080/view
