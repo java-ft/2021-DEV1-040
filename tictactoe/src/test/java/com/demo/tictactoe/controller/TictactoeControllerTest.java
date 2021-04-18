@@ -1,4 +1,4 @@
-package com.demo.tictactoe;
+package com.demo.tictactoe.controller;
 
 import com.demo.tictactoe.controller.TictactoeController;
 import org.junit.Test;
