@@ -94,14 +94,14 @@ public class Tictactoe {
 
     @Override
     public String toString(){
-        String result = "";
+        String result = "|";
 
         for(int i = 0; i < table.length; i++){
             if(table[i] != null)
                 result += table[i].getModel();
             result += "|";
             if(i == 2 || i == 5)
-                result += "\n" + "-------" + "\n";
+                result += "\n" + "-------" + "\n|";
         }
 
         return result;
