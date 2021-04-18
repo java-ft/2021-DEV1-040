@@ -31,7 +31,7 @@ public class TictactoeTest {
     }
 
     @Test
-    @DisplayName("Remove a shape to a tictactoe")
+    @DisplayName("Remove a shape from a tictactoe")
     public void removeShape(){
         Shape shape = new Shape();
         Tictactoe tictactoe = new Tictactoe();
@@ -43,12 +43,13 @@ public class TictactoeTest {
     }
 
     @Test
-    @DisplayName("Remove all shapes to a tictactoe")
+    @DisplayName("Remove all shapes from a tictactoe")
     public void removeAllShapes(){
         Shape shape = new Shape();
         Tictactoe tictactoe = new Tictactoe();
 
         tictactoe.addShape(shape, 0);
+        tictactoe.addShape(shape, 6);
         tictactoe.removeAllShapes();
         
         for(Shape index: tictactoe.table){
