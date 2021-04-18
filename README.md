@@ -6,7 +6,7 @@ TicTacToe
 
 File => New => Project from Version Control
 Choose "Repository URL"
-As Repository, enter: "https://github.com/java-ft/2021-DEV1-040.git"
+As Repository, enter: "https://github.com/java-ft/2021-DEV1-040.git".
 You are free to choose which directory you want to clone the project to.
 Then click on "Clone"
 
@@ -19,7 +19,7 @@ Find the class "TictactoeApplication.java" and run it.
 
 The SpringBoot application should be launching on http://localhost:8080.
 
-##How to play TicTacToe
+## How to play TicTacToe
 
 Go to http://localhost:8080.
 
